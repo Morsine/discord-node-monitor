@@ -1,0 +1,16 @@
+[Unit]
+Description=NodeMonitor
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/
+# Fix the paths below:
+ExecStart=/path/to/python3 /path/to/monitor.py
+Restart=on-failure
+RestartSec=10s
+User=root
+
+[Install]
+WantedBy=multi-user.target
